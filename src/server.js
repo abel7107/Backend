@@ -4,7 +4,9 @@ import { connectDB,disconnectDB  } from './config/db.js';
 
 //import Routes
  import movieRoutes from './route/movieRoutes.js';
-
+ 
+ import authRoutes from './route/authRoutes.js';
+ 
 config();
 connectDB();
 
@@ -13,6 +15,7 @@ const app = express();
 
 //API Routes
 app.use('/movies', movieRoutes);
+app.use('/auth', authRoutes);
 
  
   app.get('/hello', (req, res) => {
@@ -54,3 +57,6 @@ process.on("SIGTERM", async () => {
     process.exit(0); // Exit the process gracefully
   });
 });
+
+
+//http:localhost:5002
